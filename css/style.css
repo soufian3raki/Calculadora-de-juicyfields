@@ -1,2 +1,2 @@
-*{text-align:center}body{background-color:#000000;opacity:1;background-image:radial-gradient(ellipse farthest-corner at 4px 4px, #444cf7, #444cf7 50%, #000 50%);background-size:4px 4px;-webkit-filter:blur(0px);filter:blur(0px);color:#fff}table{color:#fff !important}iframe{border:none;margin-top:1rem}
+*{text-align:center}body{background-color:#000000;opacity:1;background-image:radial-gradient(ellipse farthest-corner at 4px 4px, #444cf7, #444cf7 50%, #000 50%);background-size:4px 4px;-webkit-filter:blur(0px);filter:blur(0px);color:#fff}table{color:#fff !important}iframe{border:none;margin-top:1rem;width:100%;min-height:700px}
 /*# sourceMappingURL=style.css.map */

@@ -25,9 +25,7 @@ html(lang="en")
                         label(for="interes") Ch7al mn gram t9dar t3tik cola chajra? (mn 45g l 55g)
                         input(type="number" class="form-control" id="interes" min="45" max="55" value="45")
                     div.form-group.mt-2.mb-3.alert.alert-danger(hidden id="alert-error") Debes llenar todos los campos!
-                    button(type="button" class="btn btn-primary" id="btnCalcular") Calcular
-                    br
-                    iframe(src="https://perjuicy.com/calculator.php" style="width: 100%; min-height: 700px" frameborder="0") 
+                    button(type="button" class="btn btn-light" id="btnCalcular") Calcular
                 div.col-12.col-sm-12.col-lg-6
                     table(border=1 cellspacing="0" cellpadding="2px" class="table" id="lista-tabla") 
                         thead 
@@ -40,6 +38,7 @@ html(lang="en")
                                 th Ch7al rab7
                                 th Ch7al n5arj
                         tbody 
+                    iframe(src="https://perjuicy.com/calculator.php" frameborder="0")
                 div.fixed-bottom
                     small &copy; Copyright 2022, L5enio
     script(src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js") 
