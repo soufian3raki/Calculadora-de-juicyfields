@@ -32,7 +32,7 @@ function calcularCronograma(monto, interes, tiempo) {
 
     tiempo = tiempo * (365 / 108);
 
-    for (let i = 0; i <= tiempo; i++) {
+    for (let i = 1; i <= tiempo; i++) {
 
         let fecha = mesActual.format('DD-MM-YYYY');
         mesActual = mesActual.add(108, 'day');
@@ -42,50 +42,49 @@ function calcularCronograma(monto, interes, tiempo) {
         const row = document.createElement('tr');
 
         if (pago >= 1) {
-            resto = 0;
             recompraE = 50000;
             recompra = recompraE / 50;
             balance = recompra * 1.5 * interes;
+            resto = 0;
 
             row.innerHTML = `
                 <td>${i}</td>
                 <td>${fecha}</td>
                 <td>${recompra}</td>
                 <td>${resto.toFixed(2)}</td>
-                <td>${recompraE.toFixed(2)}</td>
-                <td>${balance.toFixed(2)}</td>
-                <td>${pago.toFixed(2)}</td>
+                <td>${recompraE.toFixed(2)}€</td>
+                <td>${balance.toFixed(2)}€</td>
+                <td>${pago.toFixed(2)}€</td>
             `;
         } else {
             recompraE = balance - resto;
             recompra = recompraE / 50;
-            resto = recompra % 50 - .5;
-            if (balance >= 150 && i <= 0) {
+            balance = recompra * 67.5 + resto;
+
+            if (balance >= 150 && i <= 1) {
                 row.innerHTML = `
                     <td>${i}</td>
                     <td>${fecha}</td>
                     <td>${recompra}</td>
                     <td>${resto.toFixed(2)}</td>
-                    <td>${recompraE.toFixed(2)}</td>
-                    <td>${balance.toFixed(2)}</td>
-                    <td>${recompraE}</td>
+                    <td>${recompraE.toFixed(2)}€</td>
+                    <td>${balance.toFixed(2)}€</td>
+                    <td>${recompraE}€</td>
                 `;
-                balance = 50 + resto;
+                resto = balance % 50;
+                balance = balance - recompraE;
 
             } else {
-                resto = balance % 50;
-                recompraE = balance - resto;
-                recompra = recompraE / 50;
-                balance = recompra * 67.5 + resto;
                 row.innerHTML = `
                     <td>${i}</td>
                     <td>${fecha}</td>
                     <td>${recompra}</td>
-                    <td>${resto.toFixed(2)}</td>
-                    <td>${recompraE.toFixed(2)}</td>
-                    <td>${balance.toFixed(2)}</td>
+                    <td>${resto.toFixed(2)}€</td>
+                    <td>${recompraE.toFixed(2)}€</td>
+                    <td>${balance.toFixed(2)}€</td>
                     <td>0</td>
                 `;
+                resto = balance % 50;
             }
 
         }
